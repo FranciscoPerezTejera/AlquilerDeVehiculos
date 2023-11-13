@@ -21,8 +21,10 @@ abstract public class Vehiculo {
     }
     
     public String mostarInformacion(){
-    
-        return "skjhfbs";
+        
+        String condicion = (this.isAlquilado()) ? "SÍ" : "NO";
+        
+        return String.format("Matricula del vehículo: %s, Alquilado: %s", matricula,condicion);
     }
 
     public String getMatricula() {

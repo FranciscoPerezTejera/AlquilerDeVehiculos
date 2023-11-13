@@ -246,13 +246,13 @@ public class AlquilerDeCamiones extends javax.swing.JFrame {
                             if (camion.getMatricula().equalsIgnoreCase(matricula)
                             && !camion.isAlquilado()) {
 
-                                ((Camion) camion).setAlquilado(true);
+                                camion.setAlquilado(true);
                                 ((Camion) camion).setDiasAlquilar(Integer.parseInt(numeroDeDias));
                             }
                         }
                     });
 
-            textoDialogo = "El casmión con matricula: " + matricula 
+            textoDialogo = "El camión con matricula: " + matricula 
                     +" ha sido alquilado.\n"
                     +"[i] Total Camiones: "
                     + this.listaDeVehiculos

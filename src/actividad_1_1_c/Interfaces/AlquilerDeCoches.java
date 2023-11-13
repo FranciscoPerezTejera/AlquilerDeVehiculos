@@ -196,7 +196,7 @@ public class AlquilerDeCoches extends javax.swing.JFrame {
                             if (turismo.getMatricula().equalsIgnoreCase(matricula)
                             && !turismo.isAlquilado()) {
 
-                                ((Turismo) turismo).setAlquilado(true);
+                                turismo.setAlquilado(true);
                                 ((Turismo) turismo).setDiasAlquilar(Integer.parseInt(numeroDeDias));
                             }
                         }
@@ -233,14 +233,14 @@ public class AlquilerDeCoches extends javax.swing.JFrame {
         String matricula = matriculaCocheAlquiladoJTextFeild.getText();
         String numeroDeDias = "";
         String textoDialogo = "[i] Error detectado:\n";
+        boolean isCamion = this.listaDeVehiculos.stream().anyMatch(turismo -> turismo instanceof Camion
+                && turismo.getMatricula().equalsIgnoreCase(matricula));
         
-        if (this.listaDeVehiculos.stream().anyMatch(turismo -> turismo instanceof Camion
-                && turismo.getMatricula().equalsIgnoreCase(matricula))) {
+        if (isCamion) {
             
             textoDialogo += "Esa matricula no pertenece a un turismo";
             JOptionPane.showMessageDialog(null, textoDialogo, "ERROR AL ALQUILAR TURISMO", JOptionPane.QUESTION_MESSAGE);
-        
-            
+                
         }  else if (this.listaDeVehiculos.stream().anyMatch(
                 turismo -> turismo instanceof Turismo 
                         && turismo.isAlquilado() 

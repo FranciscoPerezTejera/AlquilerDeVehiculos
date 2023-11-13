@@ -49,7 +49,7 @@ public class Camion extends Vehiculo implements Coste {
     public String mostarInformacion() {
 
         return String.format("Se devuelve el camión con matrícla %s con %s días ."
-                + "\nCantidad a pagar: %.2f",
+                + "\nCantidad a pagar: %.2f EUROS",
                 this.getMatricula(),
                 this.getDiasDevolucion(),
                 this.importeFinal(diasDevolucion, precioPorDia));
